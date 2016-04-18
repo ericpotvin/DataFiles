@@ -34,9 +34,10 @@ class Params(object):
             print ERROR_INVALID_SOURCE
             return
 
-        if not Files.file_exists(binary_file):
-            print ERROR_FILE_NOT_FOUND % binary_file
-            return
+        if binary_file:
+            if not Files.file_exists(binary_file):
+                print ERROR_FILE_NOT_FOUND % binary_file
+                return
 
         if source == "phone":
 
@@ -48,6 +49,17 @@ class Params(object):
                 from lib.PhoneWrite import PhoneWrite
                 phone = PhoneWrite()
                 phone.save()
+
+        elif source == "zip_codes":
+            pass
+            if action == ACTION_READ:
+                from lib.ZipCodeRead import ZipCodeRead
+                print ZipCodeRead.read(binary_file, int(search))
+
+            elif action == ACTION_WRITE:
+                from lib.ZipCodeWrite import ZipCodeWrite
+                zips = ZipCodeWrite()
+                zips.save()
 
     @staticmethod
     def is_valid_source(source):

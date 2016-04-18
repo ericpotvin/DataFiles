@@ -49,9 +49,12 @@ def parse_arg():
 
     source = arguments.source[0]
     action = arguments.action[0]
-    binary_file = arguments.bin_file[0]
-    if "search" in arguments:
+
+    if arguments.search != "":
         search = arguments.search[0]
+
+    if arguments.bin_file != "":
+        binary_file = arguments.bin_file[0]
 
 if __name__ == '__main__':
     parse_arg()

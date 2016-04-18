@@ -11,7 +11,11 @@ Save data to a data file/binary file
 
 ## Example
 
+#### Phone
 > python run.py --source phone --action read --search 561 --bin_file bin/nanpa.bin
+
+#### Zip Code
+> python run.py --source zip_codes --action read --search 55483 --bin_file bin/zip_code_database.bin
 
 ### Phone
 

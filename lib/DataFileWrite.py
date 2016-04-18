@@ -23,6 +23,7 @@
     The "data" section contains the data using custom format.
 """
 import csv
+import codecs
 import operator
 
 from DataFile import DataFile
@@ -60,7 +61,7 @@ class DataFileWrite(DataFile):
         if not Files.file_exists(self._input_file):
             return ""
 
-        with open(self._input_file, 'rb') as data:
+        with codecs.open(self._input_file, 'rb', encoding='utf-8') as data:
             self._raw_data = list(csv.reader(data))
 
         self._raw_data.sort(key=operator.itemgetter(0))
